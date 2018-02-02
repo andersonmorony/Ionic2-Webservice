@@ -1,0 +1,39 @@
+<!--
+  Generated template for the DetalhesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-slides pager [hidden]="!carro.galerias.length">
+
+      <ion-slide *ngFor="let imagens of carro.galerias">
+        <img src="{{imagens.url}}"/>
+      </ion-slide>
+
+    </ion-slides>
+
+
+    <img src="{{imagemPadrao}}" *ngIf="carro.galerias.length == 0"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{carro.titulo}} - {{carro.marca.titulo}}
+        </ion-card-title>
+      <p>
+        {{carro.descricao}}
+      </p>
+      <p>{{carro.ano}}</p>
+      <p>{{carro.valor_formatado}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
